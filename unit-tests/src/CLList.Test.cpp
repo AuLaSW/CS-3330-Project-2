@@ -13,13 +13,13 @@
  */
 SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked list]") {
     GIVEN("An empty linked list") {
-        CLList<int> *list = new CLList<int>;
+        CLList *list = new CLList;
 
         CHECK(list->isEmpty());
         CHECK(list->size() == 0);
 
         WHEN("a node is added to the list") {
-            list->add(5);
+            list->add(*(new Shooter()));
 
             THEN("the list is no longer empty") {
                 CHECK_FALSE(list->isEmpty());
