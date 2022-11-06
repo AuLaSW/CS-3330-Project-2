@@ -10,4 +10,7 @@ public:
 private:
     E element;
     CLNode<E>* next;
+
+    template<typename T>
+    friend class CLList;
 };
