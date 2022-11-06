@@ -39,7 +39,7 @@ public:
     void advance();
 
     // add an element to the list
-    void add(const E& e);
+    void add(const E&);
 
     // remove an elemnt from the list
     void remove();
