@@ -68,6 +68,7 @@ void CLList::add(const Shooter& e) {
 
     // set the cursor to point to the new node
     this->cursor = node;
+    this->n += 1;
 }
 
 void CLList::remove() {
