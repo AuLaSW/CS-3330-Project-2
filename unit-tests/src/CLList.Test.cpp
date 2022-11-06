@@ -13,7 +13,7 @@
  */
 SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked list]") {
     GIVEN("An empty linked list") {
-        CLList *list = new CLList;
+        CLList *list = new CLList();
 
         CHECK(list->isEmpty());
         CHECK(list->size() == 0);
