@@ -11,8 +11,7 @@
  *  Create a new CLNode cursor
  *  and initializes the size to 0.
  */
-template<typename E>
-CLList<E>::CLList() {
+CLList::CLList() {
     this->cursor = nullptr;
     this->n = 0;
 }
@@ -20,38 +19,32 @@ CLList<E>::CLList() {
 /*
  * Destructor
  */
-template<typename E>
-CLList<E>::~CLList() {
+CLList::~CLList() {
     delete cursor;
 }
 
-template<typename E>
-bool CLList<E>::isEmpty() const{
+bool CLList::isEmpty() const{
     return this->n == 0;
 }
 
-template<typename E>
-int CLList<E>::size() const {
+int CLList::size() const {
     return this->n;
 }
 
-template <typename E>
-const E& CLList<E>::front() const {
-    return this->back()->next;
+const CLNode& CLList::front() const {
+    return *this->back().next;
 }
 
-template <typename E>
-const E& CLList<E>::back() const {
+const CLNode& CLList::back() const {
     if (this->isEmpty()) {
         throw std::runtime_error("Empty list cannot return a node.");
     }
     else {
-        return this->cursor;
+        return *this->cursor;
     }
 }
 
-template <typename E>
-void CLList<E>::advance() {
+void CLList::advance() {
     if (this->isEmpty()) {
         throw std::runtime_error("Empty list cannot return a node.");
     }
@@ -60,9 +53,8 @@ void CLList<E>::advance() {
     }
 }
 
-template <typename E>
-void CLList<E>::add(const E& e) {
-    CLNode<E> *node = new CLNode<E>(e);
+void CLList::add(const Shooter& e) {
+    CLNode *node = new CLNode(e);
 
     // if the list is already populated then we have to
     // insert the node into the list with the following
@@ -78,13 +70,12 @@ void CLList<E>::add(const E& e) {
     this->cursor = node;
 }
 
-template <typename E>
-void CLList<E>::remove() {
+void CLList::remove() {
     if (this->isEmpty()) {
         throw std::runtime_error("Cannot remove a node from an emtpy list.");
     }
     // set a temporary node to point to the front node
-    CLNode<E> *node = this->front();
+    CLNode *node = this->cursor->next;
 
     // set the back node's next pointer to point to
     // the node that comes after the front node

@@ -11,7 +11,6 @@
  *  of any type since it is a template class.
  *
  */
-template<typename E>
 class CLList {
 public:
     // Constructor and Destructor
@@ -27,10 +26,10 @@ public:
      * Accessors
      */
     // return the front element (after cursor)
-    const E& front() const;
+    const CLNode& front() const;
 
     // return the back element (before cursor)
-    const E& back() const;
+    const CLNode& back() const;
 
     /*
      * Setters
@@ -39,14 +38,14 @@ public:
     void advance();
 
     // add an element to the list
-    void add(const E&);
+    void add(const Shooter&);
 
     // remove an elemnt from the list
     void remove();
 
 private:
     // beginning of list
-    CLNode<E>* cursor;
+    CLNode* cursor;
     // size of the list (count of # of elements)
     int n;
 };

@@ -1,16 +1,16 @@
 // Austin Swanlaw
 #define CLNODE
+#include "Shooter.hpp"
 
-template<typename E>
 class CLNode {
 public:
     CLNode();
+    CLNode(const Shooter&);
     virtual ~CLNode();
 
 private:
-    E element;
-    CLNode<E>* next;
+    Shooter element;
+    CLNode* next;
 
-    template<typename T>
     friend class CLList;
 };
