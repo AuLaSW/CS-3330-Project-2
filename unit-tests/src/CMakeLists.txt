@@ -1,8 +1,6 @@
-file(GLOB SOURCES "../src/*.cpp")
-add_library(src STATIC SOURCES)
+add_library(src STATIC ${CMAKE_CURRENT_SOURCE_DIR}/../../src/CLList.cpp)
 
-file(GLOB TESTS "./*.cpp")
-add_library(tests OBJECT TESTS)
+add_library(tests OBJECT ${CMAKE_CURRENT_SOURCE_DIR}/CLList.Test.cpp)
 
 target_link_libraries(tests PRIVATE Catch2::Catch2)
 
