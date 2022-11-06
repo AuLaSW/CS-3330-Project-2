@@ -9,7 +9,7 @@ public:
     virtual ~CLNode();
 
 private:
-    Shooter element;
+    Shooter* element;
     CLNode* next;
 
     friend class CLList;
