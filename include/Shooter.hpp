@@ -7,6 +7,7 @@ public:
     // Constructor and Destructor
     Shooter ();
     Shooter (const std::string, const int);
+    Shooter (const Shooter&);
     virtual ~Shooter ();
 
     /*
