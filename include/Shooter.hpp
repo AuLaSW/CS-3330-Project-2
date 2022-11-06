@@ -6,6 +6,7 @@ class Shooter {
 public:
     // Constructor and Destructor
     Shooter ();
+    Shooter (const std::string, const int);
     virtual ~Shooter ();
 
     /*
