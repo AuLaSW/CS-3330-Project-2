@@ -8,7 +8,7 @@ CLNode::CLNode() {
 }
 
 CLNode::CLNode(const Shooter& s) {
-    this->element = s;
+    this->element = new Shooter(s);
 }
 
 CLNode::~CLNode() {
