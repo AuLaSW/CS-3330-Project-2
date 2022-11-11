@@ -1,3 +1,4 @@
+#include <exception>
 #define CATACH_CONFIG_MAIN
 #include "../lib/Catch2/extras/catch_amalgamated.hpp"
 #include "../../include/CLList.hpp"
@@ -15,8 +16,10 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked list]"
     GIVEN("An empty linked list") {
         CLList *list = new CLList();
 
-        CHECK(list->isEmpty());
-        CHECK(list->size() == 0);
+        THEN("the list should be empty"){
+            CHECK(list->isEmpty());
+            CHECK(list->size() == 0);
+        }
 
         WHEN("a node is added to the list") {
             list->add(*(new Shooter()));
@@ -25,6 +28,16 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked list]"
                 CHECK_FALSE(list->isEmpty());
                 CHECK_FALSE(list->size() == 0);
             }
+
+            AND_WHEN("a node is removed from the list") {
+                list->remove();
+
+                THEN("the list is empty") {
+                    CHECK(list->isEmpty());
+                    CHECK(list->size() == 0);
+                }
+            }
         }
+
     }
 }
