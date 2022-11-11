@@ -31,16 +31,16 @@ int CLList::size() const {
     return this->n;
 }
 
-const CLNode& CLList::front() const {
-    return *this->back().next;
+const Shooter& CLList::front() const {
+    return this->back();
 }
 
-const CLNode& CLList::back() const {
+const Shooter& CLList::back() const {
     if (this->isEmpty()) {
         throw std::runtime_error("Empty list cannot return a node.");
     }
     else {
-        return *this->cursor;
+        return *this->cursor->element;
     }
 }
 

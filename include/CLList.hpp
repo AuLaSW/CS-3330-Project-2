@@ -26,10 +26,10 @@ public:
      * Accessors
      */
     // return the front element (after cursor)
-    const CLNode& front() const;
+    const Shooter& front() const;
 
     // return the back element (before cursor)
-    const CLNode& back() const;
+    const Shooter& back() const;
 
     /*
      * Setters
