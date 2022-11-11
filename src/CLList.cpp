@@ -24,7 +24,7 @@ CLList::~CLList() {
 }
 
 bool CLList::isEmpty() const{
-    return this->n == 0;
+    return (this->n == 0 && this->cursor == nullptr);
 }
 
 int CLList::size() const {
@@ -75,12 +75,7 @@ void CLList::remove() {
     if (this->isEmpty()) {
         throw std::runtime_error("Cannot remove a node from an emtpy list.");
     }
-    // set a temporary node to point to the front node
-    CLNode *node = this->cursor->next;
-
-    // set the back node's next pointer to point to
-    // the node that comes after the front node
-    this->cursor->next = this->cursor->next->next;
+    this->n--;
 }
 
 #endif /* ifndef CLLIST */
