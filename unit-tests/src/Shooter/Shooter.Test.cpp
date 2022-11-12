@@ -40,8 +40,8 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
             // fires a bullet
             shooter->shooting();
 
-            THEN("the bullet count should increase"){
-                REQUIRE(shooter->getQuantity() == 1);
+            THEN("the bullet count should decrease"){
+                REQUIRE(shooter->getQuantity() == BULLETS - 1);
             }
         }
     }
