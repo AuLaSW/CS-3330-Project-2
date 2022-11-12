@@ -1,6 +1,7 @@
 #ifndef SHOOTER
 #define SHOOTER 
 #include "../include/Shooter.hpp"
+#include <stdexcept>
 
 // create the shooter
 Shooter::Shooter() : Shooter("", 0) {
@@ -8,8 +9,14 @@ Shooter::Shooter() : Shooter("", 0) {
 
 Shooter::Shooter(const std::string name, const int initialBulletCount) {
     this->name = name;
-    this->bulletCount = initialBulletCount;
-    this->initialBulletCount = initialBulletCount;
+
+    if (initialBulletCount < 0) {
+        throw std::invalid_argument("Cannot have a bullet count less than 0.");
+    }
+    else {
+        this->bulletCount = initialBulletCount;
+        this->initialBulletCount = initialBulletCount;
+    }
 }
 
 Shooter::Shooter(const Shooter& shooter) {
