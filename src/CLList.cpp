@@ -32,7 +32,12 @@ int CLList::size() const {
 }
 
 const Shooter& CLList::front() const {
-    return this->back();
+    if (this->isEmpty()) {
+        throw std::runtime_error("Empty list cannot return a node.");
+    }
+    else {
+        return *this->cursor->next->element;
+    }
 }
 
 const Shooter& CLList::back() const {
