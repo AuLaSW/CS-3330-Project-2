@@ -19,11 +19,9 @@ Shooter::Shooter(const std::string name, const int initialBulletCount) {
     }
 }
 
-Shooter::Shooter(const Shooter& shooter) {
-    this->name = shooter.name;
-    this->bulletCount = shooter.bulletCount;
-    this->initialBulletCount = shooter.initialBulletCount;
-}
+Shooter::Shooter(const Shooter& shooter) :
+    name(shooter.name), bulletCount(shooter.bulletCount), 
+    initialBulletCount(shooter.initialBulletCount) { }
 
 // delete the shooter
 Shooter::~Shooter() {
