@@ -40,7 +40,12 @@ int Shooter::getQuantity() {
 
 // simulates shooting
 void Shooter::shooting() {
-    --this->bulletCount;
+    if (this->bulletCount == 0) {
+        throw std::out_of_range("No bullets left to shoot.");
+    }
+    else {
+        --this->bulletCount;
+    }
 }
 
 // method for displaying shooter information
