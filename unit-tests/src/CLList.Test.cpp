@@ -29,6 +29,7 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked list]"
                 CHECK_FALSE(list->size() == 0);
             }
 
+            /*
             AND_WHEN("a node is removed from the list") {
                 list->remove();
 
@@ -37,6 +38,7 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked list]"
                     CHECK(list->size() == 0);
                 }
             }
+            */
         }
 
     }
