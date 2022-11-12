@@ -8,7 +8,7 @@ Shooter::Shooter() : Shooter("", 0) {
 
 Shooter::Shooter(const std::string name, const int initialBulletCount) {
     this->name = name;
-    this->bulletCount = 0;
+    this->bulletCount = initialBulletCount;
     this->initialBulletCount = initialBulletCount;
 }
 
