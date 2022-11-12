@@ -29,7 +29,7 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
         Shooter *shooter = new Shooter(NAME, BULLETS);
 
         THEN("the bullet count should be zero"){
-            REQUIRE(shooter->getQuantity() == 0);
+            REQUIRE(shooter->getQuantity() == BULLETS);
         }
 
         THEN("the name should be the same as what was inputted"){
