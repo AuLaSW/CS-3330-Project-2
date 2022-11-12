@@ -75,6 +75,14 @@ void CLList::remove() {
     if (this->isEmpty()) {
         throw std::runtime_error("Cannot remove a node from an emtpy list.");
     }
+    try {
+        CLNode *node = this->cursor->next;
+        this->cursor->next = this->cursor->next->next;
+        delete node;
+    }
+    catch (std::exception) {
+        throw std::runtime_error("No node to remove!");
+    }
     this->n--;
 }
 
