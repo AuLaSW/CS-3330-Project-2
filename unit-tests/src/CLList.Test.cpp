@@ -34,6 +34,8 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked list]"
             }
 
             AND_WHEN("a node is removed from the list") {
+                list->remove();
+
                 THEN("the list is empty") {
                     CHECK(list->isEmpty());
                     CHECK(list->size() == 0);

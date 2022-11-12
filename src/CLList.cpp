@@ -90,11 +90,13 @@ void CLList::remove() {
         throw std::runtime_error("Cannot remove a node from an emtpy list.");
     }
 
+    /*
     CLNode *node = this->cursor->next;
 
     this->cursor->next = this->cursor->next->next;
 
     delete node;
+    */
 
     this->n--;
 }
