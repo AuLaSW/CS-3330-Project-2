@@ -25,7 +25,6 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
 
     GIVEN("A shooter with some positive quantity of bullets"){
         const std::string NAME = "testShooter";
-        //const int BULLETS = 10;
         const int BULLETS = GENERATE(1, 2, 3);
         Shooter *shooter = new Shooter(NAME, BULLETS);
 
@@ -44,6 +43,15 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
             THEN("the bullet count should decrease"){
                 REQUIRE(shooter->getQuantity() == BULLETS - 1);
             }
+        }
+    }
+
+    GIVEN("A shooter with a negative quantity of bullets") {
+        const std::string NAME = "testShooter";
+        const int BULLETS = GENERATE(-1, -2, -3, -10, -15, -100);
+
+        THEN("the constructor should throw an error") {
+            REQUIRE_THROWS(new Shooter(NAME, BULLETS));
         }
     }
 }
