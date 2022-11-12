@@ -1,6 +1,6 @@
-add_library(src_list STATIC ${CMAKE_CURRENT_SOURCE_DIR}/../../src/CLList.cpp)
-add_library(src_node STATIC ${CMAKE_CURRENT_SOURCE_DIR}/../../src/CLNode.cpp)
-add_library(src_shooter STATIC ${CMAKE_CURRENT_SOURCE_DIR}/../../src/Shooter.cpp)
+add_library(src_list STATIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../src/CLList.cpp)
+add_library(src_node STATIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../src/CLNode.cpp)
+add_library(src_shooter STATIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../src/Shooter.cpp)
 
 add_library(tests OBJECT ${CMAKE_CURRENT_SOURCE_DIR}/CLList.Test.cpp)
 
