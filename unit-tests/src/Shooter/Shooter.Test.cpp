@@ -35,5 +35,14 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
         THEN("the name should be the same as what was inputted"){
             REQUIRE(shooter->getName() == NAME);
         }
+
+        WHEN("a bullet is fired"){
+            // fires a bullet
+            shooter->shooting();
+
+            THEN("the bullet count should increase"){
+                REQUIRE(shooter->getQuantity() == 1);
+            }
+        }
     }
 }
