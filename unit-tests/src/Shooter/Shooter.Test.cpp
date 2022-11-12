@@ -44,6 +44,20 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
                 REQUIRE(shooter->getQuantity() == BULLETS - 1);
             }
         }
+
+        WHEN("the bullet count has reached zero") {
+            while(shooter->getQuantity() > 0) {
+                shooter->shooting();
+            }
+
+            THEN("getQuantity() should return 0") {
+                REQUIRE(shooter->getQuantity() == 0);
+            }
+
+            THEN("if you try to shoot again, it will throw an error") {
+                REQUIRE_THROWS(shooter->shooting());
+            }
+        }
     }
 
     GIVEN("A shooter with a negative quantity of bullets") {
