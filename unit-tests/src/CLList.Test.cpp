@@ -27,11 +27,12 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked list]"
             THEN("the list is no longer empty") {
                 CHECK_FALSE(list->isEmpty());
                 CHECK_FALSE(list->size() == 0);
+
+                AND_THEN("the element the cursor points to points to itself") {
+                    CHECK(&list->back() == &list->front());
+                }
             }
 
-            THEN("the element the cursor points to points to itself") {
-                CHECK(&list->back() == &list->front());
-            }
 
             /*
             AND_WHEN("a node is removed from the list") {
