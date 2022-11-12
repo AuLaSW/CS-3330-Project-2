@@ -1,4 +1,5 @@
 #include <exception>
+#include <string>
 #define CATACH_CONFIG_MAIN
 #include "../../lib/Catch2/extras/catch_amalgamated.hpp"
 #include "../../../include/Shooter.hpp"
@@ -19,6 +20,20 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
         THEN("the values should be defaults") {
             REQUIRE(shooter->getName() == "");
             REQUIRE(shooter->getQuantity() == 0);
+        }
+    }
+
+    GIVEN("A shooter with some positive quantity of bullets"){
+        const std::string NAME = "testShooter";
+        const int BULLETS = 10;
+        Shooter *shooter = new Shooter(NAME, BULLETS);
+
+        THEN("the bullet count should be zero"){
+            REQUIRE(shooter->getQuantity() == 0);
+        }
+
+        THEN("the name should be the same as what was inputted"){
+            REQUIRE(shooter->getName() == NAME);
         }
     }
 }
