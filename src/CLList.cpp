@@ -73,6 +73,15 @@ void CLList::add(const Shooter& e) {
 
     // set the cursor to point to the new node
     this->cursor = node;
+
+    // set the current node to point to itself
+    // if it is the only node in the list.
+    if (this->size() == 0) {
+        node->next = node;
+    }
+
+    // we perform this last because checking against 
+    // 0 is faster than checking against another number.
     this->n += 1;
 }
 
