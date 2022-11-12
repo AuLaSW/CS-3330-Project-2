@@ -4,7 +4,5 @@ add_library(Shooter_tests OBJECT ${CMAKE_CURRENT_SOURCE_DIR}/Shooter.Test.cpp)
 
 target_link_libraries(Shooter_tests PRIVATE Catch2::Catch2)
 
-target_link_libraries(Shooter_tests PRIVATE src_list)
-target_link_libraries(Shooter_tests PRIVATE src_node)
-target_link_libraries(Shooter_tests PRIVATE src_shooter)
+target_link_libraries(Shooter_tests PRIVATE shooter_src_shooter)
 

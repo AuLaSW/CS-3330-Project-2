@@ -1,7 +1,7 @@
 #include <exception>
 #define CATACH_CONFIG_MAIN
-#include "../lib/Catch2/extras/catch_amalgamated.hpp"
-#include "../../include/Shooter.hpp"
+#include "../../lib/Catch2/extras/catch_amalgamated.hpp"
+#include "../../../include/Shooter.hpp"
 
 /*
  * These are tests for the CLList Class, a class for a circularly
