@@ -5,7 +5,7 @@
 #include "../../../include/Shooter.hpp"
 
 /*
- * These are tests for the CLList Class, a class for a circularly
+ * These are tests for the Shooter Class, a class for a circularly
  * linked list.
  */
 
