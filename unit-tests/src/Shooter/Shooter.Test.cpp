@@ -25,7 +25,8 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
 
     GIVEN("A shooter with some positive quantity of bullets"){
         const std::string NAME = "testShooter";
-        const int BULLETS = 10;
+        //const int BULLETS = 10;
+        const int BULLETS = GENERATE(1, 2, 3);
         Shooter *shooter = new Shooter(NAME, BULLETS);
 
         THEN("the bullet count should be zero"){
