@@ -44,7 +44,7 @@ SCENARIO("Creating and Deleting a queue", "[queue]") {
 
 SCENARIO("Adding nodes to a queue with multiple nodes", "[queue]") {
     GIVEN("A queue with multiple nodes") {
-        const int NUM_OF_SHOOTERS = GENERATE(1, 2, 5, 10, 11, 21, 40);
+        const int NUM_OF_SHOOTERS = GENERATE(2, 5, 10, 11, 21, 40);
         Queue *queue = new CLQueue();
 
         // loop to create a queue with a specified number of shooters
@@ -59,6 +59,16 @@ SCENARIO("Adding nodes to a queue with multiple nodes", "[queue]") {
 
             THEN("the front node should remain in the front") {
                 REQUIRE(&queue->front() == oldFront);
+            }
+        }
+
+        WHEN("a node is removed") {
+            const Shooter * oldFront = &queue->front();
+
+            queue->dequeue();
+
+            THEN("the front node should not be the same") {
+                REQUIRE_FALSE(&queue->front() == oldFront);
             }
         }
     }
