@@ -4,11 +4,11 @@
 #include "../include/CLQueue.hpp"
 
 CLQueue::CLQueue() {
-    
+    this->list = new CLList();
 }
 
 CLQueue::~CLQueue() {
-    
+    delete this->list;
 }
 
 bool CLQueue::isEmpty() const {
