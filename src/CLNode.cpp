@@ -7,16 +7,16 @@ CLNode::CLNode() {
     this->next = nullptr;
 }
 
-CLNode::CLNode(const Shooter& s) {
-    this->element = new Shooter(s);
-}
-
 CLNode::CLNode(const CLNode& node) : element(node.element), next(node.next) {
 }
 
 CLNode::~CLNode() {
     delete element;
     delete next;
+}
+
+void CLNode::add(Shooter& s) {
+    *this->element = s;      
 }
 
 #endif /* ifndef CLNODE */

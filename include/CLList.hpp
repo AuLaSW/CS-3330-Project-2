@@ -38,7 +38,7 @@ public:
     void advance();
 
     // add an element to the list
-    void add(const Shooter&);
+    void add(Shooter&);
 
     // remove an elemnt from the list
     void remove();
