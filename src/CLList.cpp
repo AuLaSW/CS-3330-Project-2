@@ -1,3 +1,4 @@
+// Austin Swanlaw
 #ifndef CLLIST
 #define CLLIST 
 #include "../include/CLList.hpp"

@@ -1,3 +1,4 @@
+// Austin Swanlaw
 #ifndef SHOOTER
 #define SHOOTER 
 #include "../include/Shooter.hpp"

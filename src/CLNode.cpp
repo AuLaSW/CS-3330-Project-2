@@ -1,3 +1,4 @@
+// Austin Swanlaw
 #ifndef CLNODE
 #define CLNODE 
 #include "../include/CLNode.hpp"
