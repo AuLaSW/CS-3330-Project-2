@@ -49,60 +49,37 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked_list]"
 }
 
 SCENARIO("Moving through a list", "[linked_list]") {
-    GIVEN("A circularly linked list") {
-        const int NODES = GENERATE(2, 5, 10, 13, 17, 20, 29);
-        CLList *list = new CLList();
-
-        // loop to add nodes to the list
-        while (list->size() < NODES) {
-            list->add(*new Shooter());
-        }
-
-        WHEN("the list is advanced") {
-            const Shooter *temp = &list->front();
-            list->advance();
-
-            // we can check node-iness through checking the
-            // addresses of the shooter objects, since they are
-            // unique to each node object
-            THEN("the previous front node should be the new back node") {
-                REQUIRE(temp == &list->back());
-            }
-        }
-
-        delete list;
-    }
-    
-    GIVEN("A circularly linked list with one node") {
-        const int NODES = 1;
-        CLList *list = new CLList();
-
-        // loop to add nodes to the list
-        while (list->size() < NODES) {
-            list->add(*new Shooter());
-        }
-
-        WHEN("the list is advanced") {
-            const Shooter *temp = &list->front();
-            list->advance();
-
-            // we can check node-iness through checking the
-            // addresses of the shooter objects, since they are
-            // unique to each node object
-            THEN("the previous front node should be the new back node") {
-                REQUIRE(temp == &list->back());
-            }
-        }
-
-        delete list;
-    }
-
     GIVEN("A circularly linked list with no nodes") {
         CLList *list = new CLList();
 
         WHEN("the list is advanced") {
             THEN("the list should throw an error") {
                 REQUIRE_THROWS(list->advance());
+            }
+        }
+
+        AND_GIVEN("a circularly linked list with a positive number of nodes") {
+            const int NODES = GENERATE(1, 2, 5, 10, 13, 17, 20, 29);
+
+            // loop to add nodes to the list
+            while (list->size() < NODES) {
+                list->add(*new Shooter());
+            }
+
+            // loop through the list, advancing each turn, to make sure
+            // that the advance can work with multiple tries.
+            WHEN("the list is advanced") {
+                //for (int i = 0; i < NODES; i++) {
+                    const Shooter *temp = &list->front();
+                    list->advance();
+
+                    // we can check node-iness through checking the
+                    // addresses of the shooter objects, since they are
+                    // unique to each node object
+                    THEN("the previous front node should be the new back node") {
+                        REQUIRE(temp == &list->back());
+                    }
+                //}
             }
         }
 
