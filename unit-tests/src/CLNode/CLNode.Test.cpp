@@ -3,8 +3,13 @@
 #include "../../../include/CLNode.hpp"
 
 SCENARIO("Circularly Linked Nodes can be created and destroyed", "[node]") {
-    GIVEN("A node") {
+    GIVEN("An empty node") {
         CLNode *node = new CLNode();
+
+        THEN("the node should have default values") {
+            REQUIRE(&node->getNext() == nullptr);
+            REQUIRE((node->getElement()).operator==(*new Shooter()));
+        }
 
         THEN("the node can be deleted") {
             delete node;
