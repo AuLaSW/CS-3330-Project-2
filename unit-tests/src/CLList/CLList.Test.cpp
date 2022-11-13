@@ -60,12 +60,14 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked_list]"
         WHEN("an element is removed") {
             THEN("no errors should be thrown") {
                 REQUIRE_NOTHROW(list->remove());
-            }
-            THEN("the size should decrease by one") {
-                REQUIRE(list->size() == NODES - 1);
+
+                AND_THEN("the size should decrease by one") {
+                    REQUIRE(list->size() == NODES - 1);
+                }
             }
         }       
 
+        /*
         WHEN("All of the elements are removed") {
             while(!list->isEmpty()){
                 list->remove();
@@ -75,6 +77,7 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked_list]"
                 REQUIRE(list->isEmpty());
             }
         }
+        */
     }
 }
 

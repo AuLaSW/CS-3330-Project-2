@@ -87,10 +87,10 @@ void CLList::remove() {
     else if (node == cursor) {
         this->cursor = nullptr;
     }
+    this->n -= 1;
 
     delete node;
 
-    this->n--;
 }
 
 #endif /* ifndef CLLIST */
