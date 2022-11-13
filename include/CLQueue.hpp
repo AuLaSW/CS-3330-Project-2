@@ -11,7 +11,6 @@
  *
  */
 
-template<typename E>
 class CLQueue {
 public:
     // Constructor and Destructor
@@ -27,20 +26,20 @@ public:
      * Accessors
      */
     // returns the element at the front of the queue
-    const E& front() const;
+    const Shooter& front() const;
 
     /* 
      * Setters
      */
     // Add an element to the end of the queue
-    void enqueue(const E& e);
+    void enqueue(const Shooter& e);
 
     // remove the front-most queue-element
     void dequeue();
 
 private:
     // circularl list we are using to store the queue
-    CLList<E>* list;
+    CLList* list;
     // the length of the list above
     int n;
 };
