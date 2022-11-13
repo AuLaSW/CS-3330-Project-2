@@ -66,6 +66,10 @@ SCENARIO("Moving through a list", "[linked_list]") {
                 list->add(*new Shooter());
             }
 
+            THEN("the size should be the number of nodes"){
+                REQUIRE(list->size() == NODES);
+            }
+
             // loop through the list, advancing each turn, to make sure
             // that the advance can work with multiple tries.
             WHEN("the list is advanced") {
