@@ -5,18 +5,20 @@
 
 class FileManagement {
 public:
-    FileManagement(std::string);
+    FileManagement(const std::string);
     virtual ~FileManagement();
 
     // if we reached the end of the file or if the
     // file is empty, then this returns true
-    bool isEmpty();
+    bool isEmpty() const;
 
-    // returns the next line in the file
-    std::string returnLine();
+    // get the next line in the file
+    void getNextLine();
 
 private:
+    // the file we are working with
     std::fstream file;
+    // the line we are getting from the file
     std::string line;
 };
 
