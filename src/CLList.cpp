@@ -59,8 +59,7 @@ void CLList::advance() {
 }
 
 void CLList::add(const Shooter& e) {
-    CLNode *node = new CLNode();
-    *node->element = e;
+    CLNode *node = new CLNode(e);
 
     if (this->isEmpty()) {
         node->next = node;
