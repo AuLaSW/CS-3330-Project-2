@@ -73,17 +73,15 @@ SCENARIO("Moving through a list", "[linked_list]") {
             // loop through the list, advancing each turn, to make sure
             // that the advance can work with multiple tries.
             WHEN("the list is advanced") {
-                //for (int i = 0; i < NODES; i++) {
-                    const Shooter *temp = &list->front();
-                    list->advance();
+                const Shooter *temp = &list->front();
+                list->advance();
 
-                    // we can check node-iness through checking the
-                    // addresses of the shooter objects, since they are
-                    // unique to each node object
-                    THEN("the previous front node should be the new back node") {
-                        REQUIRE(temp == &list->back());
-                    }
-                //}
+                // we can check node-iness through checking the
+                // addresses of the shooter objects, since they are
+                // unique to each node object
+                THEN("the previous front node should be the new back node") {
+                    REQUIRE(temp == &list->back());
+                }
             }
         }
 
