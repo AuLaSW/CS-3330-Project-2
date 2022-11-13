@@ -26,6 +26,12 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
             delete shooter;
             REQUIRE(true);
         }
+
+        WHEN("a bullet is fired"){
+            THEN("an error should be thrown"){
+                REQUIRE_THROWS(shooter->shooting());
+            }
+        }       
     }
 
     GIVEN("A shooter with some positive quantity of bullets"){
@@ -33,7 +39,7 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
         const int BULLETS = GENERATE(1, 2, 3);
         Shooter *shooter = new Shooter(NAME, BULLETS);
 
-        THEN("the bullet count should be zero"){
+        THEN("the bullet count should be the number of bullets inputted"){
             REQUIRE(shooter->getQuantity() == BULLETS);
         }
 
