@@ -32,6 +32,19 @@ Shooter::Shooter(const Shooter& shooter) :
     name(shooter.name), bulletCount(shooter.bulletCount), 
     initialBulletCount(shooter.initialBulletCount) { }
 
+Shooter::Shooter(const std::string& name, const int bulletCount, 
+                 const int initialBulletCount) {
+    this->name = name;
+
+    if (initialBulletCount < 0 || bulletCount == 0) {
+        throw std::invalid_argument("Cannot have a bullet count less than 0.");
+    }
+    else {
+        this->bulletCount = bulletCount;
+        this->initialBulletCount = initialBulletCount;
+    }
+}
+
 // delete the shooter
 Shooter::~Shooter() {
     

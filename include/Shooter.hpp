@@ -8,6 +8,7 @@ public:
     Shooter ();
     Shooter (const std::string&);
     Shooter (const std::string&, const int);
+    Shooter (const std::string&, const int, const int);
     Shooter (const Shooter&);
     virtual ~Shooter ();
 
