@@ -59,13 +59,14 @@ SCENARIO("Moving through a list", "[linked_list]") {
         }
 
         WHEN("the list is advanced") {
-            CLList *temp = list;
+            const Shooter *temp = &list->front();
             list->advance();
 
-            // the two objects should be the same since we are pointing 
-            // to the same node
+            // we can check node-iness through checking the
+            // addresses of the shooter objects, since they are
+            // unique to each node object
             THEN("the previous front node should be the new back node") {
-                REQUIRE(&temp->front() == &list->back());
+                REQUIRE(temp == &list->back());
             }
         }
 
