@@ -5,6 +5,7 @@ add_subdirectory(lib/Catch2)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/CLList CLList_tests)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/Shooter Shooter_tests)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/CLNode CLNode_tests)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/CLQueue CLQueue_tests)
 
 add_executable(unit_tests)
 
@@ -13,5 +14,6 @@ target_link_libraries(unit_tests
     CLList_tests
     Shooter_tests
     CLNode_tests
+    CLQueue_tests
 )
 
