@@ -21,6 +21,11 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
             REQUIRE(shooter->getName() == "");
             REQUIRE(shooter->getQuantity() == 0);
         }
+
+        THEN("the shooter can be deleted") {
+            delete shooter;
+            REQUIRE(true);
+        }
     }
 
     GIVEN("A shooter with some positive quantity of bullets"){

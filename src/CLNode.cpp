@@ -11,8 +11,6 @@ CLNode::CLNode(const CLNode& node) : element(node.element), next(node.next) {
 }
 
 CLNode::~CLNode() {
-    delete element;
-    delete next;
 }
 
 void CLNode::add(Shooter& s) {
