@@ -13,17 +13,24 @@ int main(int argc, char *argv[])
     CLQueue *queue = new CLQueue();
 
     // read the file contents into a queue
+    // loop through the file until the end of the file is reached.
     while (!file->isEmpty()) {
         queue->enqueue(*(new Shooter(file->getNextLine())));
     }
 
     // shooting sequence
     while (!queue->isEmpty()) {
+        // create a temporary holder for
+        // the shooter
         Shooter temp = queue->front();
+        // remove the shooter from the queue
         queue->dequeue();
 
+        // let the shooter shoot
         temp.shooting();
 
+        // if the shooter has bullets left, then
+        // put them back into the queue
         if (temp.getQuantity() != 0) {
             queue->enqueue(temp);
         }

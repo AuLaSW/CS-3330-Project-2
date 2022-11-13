@@ -39,13 +39,18 @@ Shooter::~Shooter() {
     
 }
 
+// create a shooter from string input (such as from a file)
 const Shooter& Shooter::createShooter(const std::string str) {
     std::string delim = " ";
 
+    // get the name from the string, the first value
     std::string name = str.substr(0, str.find(delim));
+    // get the bullet count from the string, the second value
     int bulletCount = stoi(str.substr(str.find(delim), str.length() - 1));
+    // bullet count is the same as the initial bullet count
     int initialBulletCount = bulletCount;
 
+    // return a shooter object.
     return *(new Shooter(name, bulletCount, initialBulletCount));
 }
 
@@ -59,11 +64,14 @@ int Shooter::getQuantity() const {
     return this->bulletCount;
 }
 
+// return the initial quantity of bullets the shooter had
 int Shooter::getInitialQuantity() const {
     return this->initialBulletCount;
 }
 
 // simulates shooting
+// decrements the number of bullets
+// unless there are no bullets, in which case it throws an error
 void Shooter::shooting() {
     if (this->bulletCount == 0) {
         throw std::out_of_range("No bullets left to shoot.");

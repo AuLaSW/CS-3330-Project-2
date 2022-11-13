@@ -5,7 +5,9 @@
 
 class FileManagement {
 public:
+    // constructor
     FileManagement(const std::string);
+    // destructor
     virtual ~FileManagement();
 
     // if we reached the end of the file or if the

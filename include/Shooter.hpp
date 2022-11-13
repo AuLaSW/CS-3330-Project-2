@@ -9,6 +9,7 @@ public:
     Shooter (const std::string&);
     Shooter (const std::string&, const int);
     Shooter (const std::string&, const int, const int);
+    // copy constructor
     Shooter (const Shooter&);
     virtual ~Shooter ();
 
@@ -28,11 +29,15 @@ public:
     // the shooter shoots one bullet
     void shooting();
 
+    // equivalence, used for test suite
     bool operator==(const Shooter&) const;
 
 private:
+    // name of the shooter
     std::string name;
+    // how many bullets they have left
     int bulletCount;
+    // how many bullets they had to start
     int initialBulletCount;
 
 };
