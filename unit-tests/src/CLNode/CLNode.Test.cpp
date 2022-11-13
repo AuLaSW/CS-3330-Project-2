@@ -13,7 +13,8 @@ SCENARIO("Circularly Linked Nodes can be created and destroyed") {
     }
 
     GIVEN("A node with an empty shooter") {
-        CLNode *node = new CLNode(*(new Shooter()));
+        Shooter *shooter = new Shooter();
+        CLNode *node = new CLNode(*shooter);
 
         THEN("the node can be deleted") {
             delete node;
