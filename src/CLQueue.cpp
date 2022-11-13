@@ -26,8 +26,8 @@ const Shooter& CLQueue::front() const {
 
 void CLQueue::enqueue(const Shooter& e) {
     list->add(e);
-    list->advance();
     this->displayAddToQueue();
+    list->advance();
 }
 
 void CLQueue::dequeue() {
