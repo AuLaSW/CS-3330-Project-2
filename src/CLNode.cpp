@@ -13,7 +13,7 @@ CLNode::CLNode(const CLNode& node) : element(node.element), next(node.next) {
 CLNode::~CLNode() {
 }
 
-void CLNode::add(Shooter& s) {
+void CLNode::add(const Shooter& s) {
     this->element = s;      
 }
 

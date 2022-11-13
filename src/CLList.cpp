@@ -61,7 +61,7 @@ void CLList::advance() {
     }
 }
 
-void CLList::add(Shooter& e) {
+void CLList::add(const Shooter& e) {
     CLNode *node = new CLNode();
     node->add(e);
 

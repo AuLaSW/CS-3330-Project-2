@@ -8,7 +8,7 @@ public:
     CLNode(const CLNode&);
     virtual ~CLNode();
 
-    void add(Shooter&);
+    void add(const Shooter&);
     const CLNode& getNext() const;
     const Shooter& getElement() const;
 
