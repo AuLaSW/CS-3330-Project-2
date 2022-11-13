@@ -12,6 +12,8 @@ public:
     Shooter (const Shooter&);
     virtual ~Shooter ();
 
+    static const Shooter& createShooter(const std::string);
+
     /*
      * Accessors
      */

@@ -8,20 +8,19 @@
 Shooter::Shooter() : Shooter("", 0, 0) {
 }
 
-Shooter::Shooter(const std::string& str) {
-    std::string delim = " ";
+// construct shooter from a file input
+Shooter::Shooter(const std::string& str) : 
+    Shooter(Shooter::createShooter(str)){ }
 
-    this->name = str.substr(0, str.find(delim));
-    this->bulletCount = stoi(str.substr(str.find(delim), str.length() - 1));
-    this->initialBulletCount = this->bulletCount;
-}
-
+// construct a shooter from just a name and an initial bullet count
 Shooter::Shooter(const std::string& name, const int initialBulletCount) : 
     Shooter(name, initialBulletCount, initialBulletCount) { }
 
+// copy constructor for shooters
 Shooter::Shooter(const Shooter& shooter) : 
     Shooter(shooter.name, shooter.bulletCount, shooter.initialBulletCount) { }
 
+// create shooter from member data
 Shooter::Shooter(const std::string& name, const int bulletCount, 
                  const int initialBulletCount) {
     this->name = name;
@@ -38,6 +37,16 @@ Shooter::Shooter(const std::string& name, const int bulletCount,
 // delete the shooter
 Shooter::~Shooter() {
     
+}
+
+const Shooter& Shooter::createShooter(const std::string str) {
+    std::string delim = " ";
+
+    std::string name = str.substr(0, str.find(delim));
+    int bulletCount = stoi(str.substr(str.find(delim), str.length() - 1));
+    int initialBulletCount = bulletCount;
+
+    return *(new Shooter(name, bulletCount, initialBulletCount));
 }
 
 // return the name of the shooter
