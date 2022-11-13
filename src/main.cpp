@@ -19,14 +19,14 @@ int main(int argc, char *argv[])
 
     // shooting sequence
     while (!queue->isEmpty()) {
-        Shooter * temp = &queue->front();
+        Shooter temp = queue->front();
         queue->dequeue();
 
-        temp->shooting();
-        temp->display();
+        temp.shooting();
+        temp.display();
 
-        if (temp->getQuantity() != 0) {
-            queue->enqueue(*temp);
+        if (temp.getQuantity() != 0) {
+            queue->enqueue(temp);
         }
     }
 
