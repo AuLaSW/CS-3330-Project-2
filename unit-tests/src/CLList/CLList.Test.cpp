@@ -112,7 +112,25 @@ SCENARIO("Moving through a list", "[linked_list]") {
                 // addresses of the shooter objects, since they are
                 // unique to each node object
                 THEN("the previous front node should be the new back node") {
-                    REQUIRE(temp == &list->back());
+                    REQUIRE(&list->back() == temp);
+                }
+            }
+
+            WHEN("the list is adanced all the way through") {
+                int count = 0;
+                const Shooter *tempBack = &list->back();
+                const Shooter *tempFront = &list->front();
+
+                while (count < list->size()) {
+                    list->advance();
+                    count++;
+                }
+
+                // here we are comparing the two shooter objects' positions
+                // to make sure they are the same objects being pointed to.
+                THEN("the list should be back where it started") {
+                    REQUIRE(&list->back() == tempBack);
+                    REQUIRE(&list->front() == tempFront);
                 }
             }
         }
