@@ -53,4 +53,12 @@ void Shooter::display() {
     // write method
 }
 
+// this operator is really only used when comparing
+// in the test suite.
+bool Shooter::operator==(const Shooter& b) {
+    return ( this->name == b.name
+             && this->bulletCount == b.bulletCount
+             && this->initialBulletCount == b.initialBulletCount );
+}
+
 #endif /* ifndef SHOOTER */

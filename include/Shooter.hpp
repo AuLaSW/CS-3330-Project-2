@@ -24,8 +24,11 @@ public:
     // display shooter information on screen
     void display();
 
+    bool operator==(const Shooter&);
+
 private:
     std::string name;
     int bulletCount;
     int initialBulletCount;
+
 };

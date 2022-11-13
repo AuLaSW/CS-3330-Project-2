@@ -79,4 +79,18 @@ SCENARIO("Creating and deleting a shooter", "[shooter]") {
             REQUIRE_THROWS(new Shooter(NAME, BULLETS));
         }
     }
+
+    GIVEN("An existing shooter") {
+        const int BULLETS = GENERATE(0, 1, 2, 5, 10, 11, 20, 23);
+        const std::string NAMES = GENERATE("A", "shooter", "test");
+        Shooter *existShooter = new Shooter(NAMES, BULLETS);
+
+        WHEN("the shooter is copied"){
+            Shooter *copyShooter = existShooter;
+
+            THEN("the existing shooter should be deep-copied"){
+                REQUIRE(copyShooter->operator==(*existShooter));
+            }
+        }
+    }
 }
