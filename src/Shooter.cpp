@@ -7,7 +7,17 @@
 Shooter::Shooter() : Shooter("", 0) {
 }
 
-Shooter::Shooter(const std::string name, const int initialBulletCount) {
+Shooter::Shooter(const std::string& str) {
+    std::string delim = " ";
+
+    const int NUM_OF_PROPERTIES = 2;
+
+    this->name = str.substr(0, str.find(delim));
+    this->bulletCount = stoi(str.substr(str.find(delim), str.length() - 1));
+    this->initialBulletCount = this->bulletCount;
+}
+
+Shooter::Shooter(const std::string& name, const int initialBulletCount) {
     this->name = name;
 
     if (initialBulletCount < 0) {

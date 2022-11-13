@@ -94,3 +94,23 @@ SCENARIO("Creating, deleting, and using a shooter", "[shooter]") {
         }
     }
 }
+
+SCENARIO("Creating a shooter object from a file", "[shooter]") {
+    GIVEN("A string from a file representing a shooter") {
+        const std::string INPUT = "Amanda 13";
+        const std::string NAME = "Amanda";
+        const int BULLETS = 13;
+        
+        WHEN("a new shooter is generated") {
+            Shooter *shooter = new Shooter(INPUT);
+
+            THEN("the name should match") {
+                REQUIRE(shooter->getName() == NAME);
+            }
+
+            THEN("the number of bullets should match") {
+                REQUIRE(shooter->getQuantity() == BULLETS);
+            }
+        }
+    }
+}
