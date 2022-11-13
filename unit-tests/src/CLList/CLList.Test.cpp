@@ -43,6 +43,25 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked_list]"
             }
         }
 
+        WHEN("multiple nodes are added") {
+            const int NODES = GENERATE(1, 2, 5, 10, 13, 17, 20, 29);
+
+            // loop to add nodes to the list
+            while (list->size() < NODES) {
+                list->add(*new Shooter());
+            }
+
+            THEN("the size should be the number of nodes added") {
+                REQUIRE(list->size() == NODES);
+            }
+
+            AND_WHEN("an element is removed") {
+                THEN("no errors should be thrown") {
+                    REQUIRE_NOTHROW(list->remove());
+                }
+            }       
+        }
+
         delete list;
 
     }
@@ -64,10 +83,6 @@ SCENARIO("Moving through a list", "[linked_list]") {
             // loop to add nodes to the list
             while (list->size() < NODES) {
                 list->add(*new Shooter());
-            }
-
-            THEN("the size should be the number of nodes"){
-                REQUIRE(list->size() == NODES);
             }
 
             // loop through the list, advancing each turn, to make sure
