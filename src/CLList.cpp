@@ -78,7 +78,7 @@ void CLList::add(Shooter& e) {
 }
 
 void CLList::remove() {
-    CLNode *node = new CLNode(*this->cursor->next);
+    CLNode *node = this->cursor->next;
     if (this->isEmpty()) {
         throw std::runtime_error("Cannot remove a node from an emtpy list.");
     }
