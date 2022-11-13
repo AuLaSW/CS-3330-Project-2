@@ -59,25 +59,16 @@ void CLList::advance() {
 }
 
 void CLList::add(const Shooter& e) {
-    CLNode *node = new CLNode(e);
+    CLNode *node = new CLNode();
+    *node->element = e;
 
-    // if the list is already populated then we have to
-    // insert the node into the list with the following
-    // motions
-    if (!this->isEmpty()) {
-        // set the node to point to the front node
-        node->next = this->cursor->next;
-        // set the back node to point to the new node
-        this->cursor->next = node;
-    }
-
-    // set the cursor to point to the new node
-    this->cursor = node;
-
-    // set the current node to point to itself
-    // if it is the only node in the list.
-    if (this->size() == 0) {
+    if (this->isEmpty()) {
         node->next = node;
+        this->cursor = node;
+    }
+    else {
+        node->next = cursor->next;
+        cursor->next = node;
     }
 
     // we perform this last because checking against 
