@@ -10,10 +10,10 @@
  */
 
 /*
- * This tests walks through creating a list and perform simple node operations
- * on the list, then destroying it.
+ * This test scenario creates and destroys different shooter objects
+ * to make sure that all of the different methods work.
  */
-SCENARIO("Creating and deleting a shooter", "[shooter]") {
+SCENARIO("Creating, deleting, and using a shooter", "[shooter]") {
     GIVEN("An empty shooter") {
         Shooter *shooter = new Shooter();
 
