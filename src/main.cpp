@@ -4,7 +4,7 @@
 int main(int argc, char *argv[])
 {
     // the file that we are reading the shooters from
-    const std::string SHOOTER_FILE;
+    const std::string SHOOTER_FILE = "../src/Week3-bulletCount.txt";
     
     // open the file
     FileManagement *file = new FileManagement(SHOOTER_FILE);
@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
         queue->dequeue();
 
         temp.shooting();
-        temp.display();
 
         if (temp.getQuantity() != 0) {
             queue->enqueue(temp);
