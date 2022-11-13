@@ -5,7 +5,7 @@
 #include <iostream>
 
 // create the shooter
-Shooter::Shooter() : Shooter("", 0) {
+Shooter::Shooter() : Shooter("", 0, 0) {
 }
 
 Shooter::Shooter(const std::string& str) {
@@ -16,27 +16,17 @@ Shooter::Shooter(const std::string& str) {
     this->initialBulletCount = this->bulletCount;
 }
 
-Shooter::Shooter(const std::string& name, const int initialBulletCount) {
-    this->name = name;
+Shooter::Shooter(const std::string& name, const int initialBulletCount) : 
+    Shooter(name, initialBulletCount, initialBulletCount) { }
 
-    if (initialBulletCount < 0) {
-        throw std::invalid_argument("Cannot have a bullet count less than 0.");
-    }
-    else {
-        this->bulletCount = initialBulletCount;
-        this->initialBulletCount = initialBulletCount;
-    }
-}
-
-Shooter::Shooter(const Shooter& shooter) :
-    name(shooter.name), bulletCount(shooter.bulletCount), 
-    initialBulletCount(shooter.initialBulletCount) { }
+Shooter::Shooter(const Shooter& shooter) : 
+    Shooter(shooter.name, shooter.bulletCount, shooter.initialBulletCount) { }
 
 Shooter::Shooter(const std::string& name, const int bulletCount, 
                  const int initialBulletCount) {
     this->name = name;
 
-    if (initialBulletCount < 0 || bulletCount == 0) {
+    if (initialBulletCount < 0 || bulletCount < 0) {
         throw std::invalid_argument("Cannot have a bullet count less than 0.");
     }
     else {
