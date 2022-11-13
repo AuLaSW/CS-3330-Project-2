@@ -21,7 +21,9 @@ CLList::CLList() {
  * Destructor
  */
 CLList::~CLList() {
-    delete cursor;
+    while (!this->isEmpty()) {
+        this->remove();
+    }
 }
 
 bool CLList::isEmpty() const{

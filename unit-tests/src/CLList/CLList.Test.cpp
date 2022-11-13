@@ -42,28 +42,39 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked_list]"
                 }
             }
         }
+    }
 
-        WHEN("multiple nodes are added") {
-            const int NODES = GENERATE(1, 2, 5, 10, 13, 17, 20, 29);
+    GIVEN("A list with multiple nodes are added") {
+        const int NODES = GENERATE(1, 2, 5, 10, 13, 17, 20, 29);
+        CLList *list = new CLList();
 
-            // loop to add nodes to the list
-            while (list->size() < NODES) {
-                list->add(*new Shooter());
-            }
-
-            THEN("the size should be the number of nodes added") {
-                REQUIRE(list->size() == NODES);
-            }
-
-            AND_WHEN("an element is removed") {
-                THEN("no errors should be thrown") {
-                    REQUIRE_NOTHROW(list->remove());
-                }
-            }       
+        // loop to add nodes to the list
+        while (list->size() < NODES) {
+            list->add(*new Shooter());
         }
 
-        delete list;
+        THEN("the size should be the number of nodes added") {
+            REQUIRE(list->size() == NODES);
+        }
 
+        WHEN("an element is removed") {
+            THEN("no errors should be thrown") {
+                REQUIRE_NOTHROW(list->remove());
+            }
+            THEN("the size should decrease by one") {
+                REQUIRE(list->size() == NODES - 1);
+            }
+        }       
+
+        WHEN("All of the elements are removed") {
+            while(!list->isEmpty()){
+                list->remove();
+            }
+
+            THEN("the list is empty") {
+                REQUIRE(list->isEmpty());
+            }
+        }
     }
 }
 
@@ -100,6 +111,5 @@ SCENARIO("Moving through a list", "[linked_list]") {
             }
         }
 
-        delete list;
     }
 }
