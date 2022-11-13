@@ -2,6 +2,7 @@
 #define SHOOTER 
 #include "../include/Shooter.hpp"
 #include <stdexcept>
+#include <iostream>
 
 // create the shooter
 Shooter::Shooter() : Shooter("", 0) {
@@ -9,8 +10,6 @@ Shooter::Shooter() : Shooter("", 0) {
 
 Shooter::Shooter(const std::string& str) {
     std::string delim = " ";
-
-    const int NUM_OF_PROPERTIES = 2;
 
     this->name = str.substr(0, str.find(delim));
     this->bulletCount = stoi(str.substr(str.find(delim), str.length() - 1));
@@ -60,7 +59,9 @@ void Shooter::shooting() {
 
 // method for displaying shooter information
 void Shooter::display() {
-    // write method
+    std::cout << "Shooter: " << this->name
+        << " added to the queue. Remaining Bullets: "
+        << this->bulletCount << std::endl;
 }
 
 // this operator is really only used when comparing
