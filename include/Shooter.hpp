@@ -22,6 +22,7 @@ public:
 
     // returns the remaining bullet count
     int getQuantity() const;
+    int getInitialQuantity() const;
 
     // initiates the shooting command;
     // the shooter shoots one bullet

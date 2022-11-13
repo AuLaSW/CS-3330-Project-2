@@ -59,6 +59,10 @@ int Shooter::getQuantity() const {
     return this->bulletCount;
 }
 
+int Shooter::getInitialQuantity() const {
+    return this->initialBulletCount;
+}
+
 // simulates shooting
 void Shooter::shooting() {
     if (this->bulletCount == 0) {
