@@ -50,12 +50,12 @@ const Shooter& Shooter::createShooter(const std::string str) {
 }
 
 // return the name of the shooter
-std::string Shooter::getName() {
+std::string Shooter::getName() const {
     return this->name;
 }
 
 // return the number of bullets left
-int Shooter::getQuantity() {
+int Shooter::getQuantity() const {
     return this->bulletCount;
 }
 
@@ -67,13 +67,6 @@ void Shooter::shooting() {
     else {
         --this->bulletCount;
     }
-}
-
-// method for displaying shooter information
-void Shooter::display() {
-    std::cout << "Shooter: " << this->name
-        << " added to the queue. Remaining Bullets: "
-        << this->bulletCount << std::endl;
 }
 
 // this operator is really only used when comparing

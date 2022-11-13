@@ -18,15 +18,14 @@ public:
      * Accessors
      */
     // returns the name of the shooter
-    std::string getName();
+    std::string getName() const;
+
     // returns the remaining bullet count
-    int getQuantity();
+    int getQuantity() const;
 
     // initiates the shooting command;
     // the shooter shoots one bullet
     void shooting();
-    // display shooter information on screen
-    void display();
 
     bool operator==(const Shooter&) const;
 

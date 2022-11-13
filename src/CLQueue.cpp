@@ -2,6 +2,7 @@
 #ifndef CLQUEUE
 #define CLQUEUE 
 #include "../include/CLQueue.hpp"
+#include <iostream>
 
 CLQueue::CLQueue() {
     this->list = new CLList();
@@ -30,6 +31,12 @@ void CLQueue::enqueue(const Shooter& e) {
 
 void CLQueue::dequeue() {
     list->remove();
+}
+
+void CLQueue::displayAddToQueue() const {
+    std::cout << "Shooter: " << this->front().getName()
+        << " added to the queue. Remaining Bullets: "
+        << this->front().getQuantity() << std::endl;
 }
 
 #endif /* ifndef CLQUEUE */

@@ -40,4 +40,6 @@ public:
 private:
     // circularl list we are using to store the queue
     CLList* list;
+
+    void displayAddToQueue() const;
 };
