@@ -74,3 +74,17 @@ SCENARIO("Adding nodes to a queue with multiple nodes", "[queue]") {
     }
 }
 
+SCENARIO("Removing a shooter from the queue.", "[queue]") {
+    GIVEN("A queue with a non-shooter") {
+        Queue *queue = new Queue();
+
+        queue->enqueue(*(new Shooter("test", 1)));
+
+        WHEN("the shooter shoots their last bullet") {
+            THEN("the dequeue operation should output to the terminal") {
+                queue->dequeue();
+                REQUIRE(true);
+            }
+        }
+    }
+}
