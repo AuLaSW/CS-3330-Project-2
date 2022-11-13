@@ -6,7 +6,7 @@ class CLNode {
 public:
     CLNode();
     CLNode(const CLNode&);
-    //virtual ~CLNode();
+    virtual ~CLNode();
 
     void add(Shooter&);
 

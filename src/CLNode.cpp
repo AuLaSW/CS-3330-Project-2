@@ -9,10 +9,8 @@ CLNode::CLNode() {
 CLNode::CLNode(const CLNode& node) : element(node.element), next(node.next) {
 }
 
-/*
 CLNode::~CLNode() {
 }
-*/
 
 void CLNode::add(Shooter& s) {
     this->element = s;      
