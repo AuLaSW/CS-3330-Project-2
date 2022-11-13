@@ -25,7 +25,7 @@ CLList::~CLList() {
 }
 
 bool CLList::isEmpty() const{
-    return (this->n == 0 && this->cursor == nullptr);
+    return this->cursor == nullptr;
 }
 
 int CLList::size() const {
