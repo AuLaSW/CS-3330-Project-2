@@ -2,7 +2,7 @@
 #include "../../lib/Catch2/extras/catch_amalgamated.hpp"
 #include "../../../include/CLNode.hpp"
 
-SCENARIO("Circularly Linked Nodes can be created and destroyed") {
+SCENARIO("Circularly Linked Nodes can be created and destroyed", "[node]") {
     GIVEN("A node") {
         CLNode *node = new CLNode();
 
