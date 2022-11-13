@@ -37,7 +37,7 @@ const Shooter& CLList::front() const {
         throw std::runtime_error("Empty list cannot return a node.");
     }
     else {
-        return *this->cursor->next->element;
+        return this->cursor->next->element;
     }
 }
 
@@ -46,7 +46,7 @@ const Shooter& CLList::back() const {
         throw std::runtime_error("Empty list cannot return a node.");
     }
     else {
-        return *this->cursor->element;
+        return this->cursor->element;
     }
 }
 

@@ -6,12 +6,12 @@ class CLNode {
 public:
     CLNode();
     CLNode(const CLNode&);
-    virtual ~CLNode();
+    //virtual ~CLNode();
 
     void add(Shooter&);
 
 private:
-    Shooter* element;
+    Shooter element;
     CLNode* next;
 
     friend class CLList;
