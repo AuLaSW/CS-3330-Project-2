@@ -55,7 +55,7 @@ void Shooter::display() {
 
 // this operator is really only used when comparing
 // in the test suite.
-bool Shooter::operator==(const Shooter& b) {
+bool Shooter::operator==(const Shooter& b) const {
     return ( this->name == b.name
              && this->bulletCount == b.bulletCount
              && this->initialBulletCount == b.initialBulletCount );

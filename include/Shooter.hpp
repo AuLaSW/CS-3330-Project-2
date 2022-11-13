@@ -24,7 +24,7 @@ public:
     // display shooter information on screen
     void display();
 
-    bool operator==(const Shooter&);
+    bool operator==(const Shooter&) const;
 
 private:
     std::string name;
