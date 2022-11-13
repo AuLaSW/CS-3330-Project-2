@@ -2,6 +2,7 @@
 #define CLLIST 
 #include "../include/CLList.hpp"
 #include <exception>
+#include <iostream>
 #include <stdexcept>
 
 /*
@@ -76,13 +77,16 @@ void CLList::add(const Shooter& e) {
 }
 
 void CLList::remove() {
-    CLNode *node = this->cursor->next;
+    CLNode *node = new CLNode(*this->cursor->next);
     if (this->isEmpty()) {
         throw std::runtime_error("Cannot remove a node from an emtpy list.");
     }
     else if (node == cursor) {
         this->cursor = nullptr;
     }
+
+    std::cout << node << std::endl;
+    std::cout << cursor << std::endl;
 
     delete node;
 
