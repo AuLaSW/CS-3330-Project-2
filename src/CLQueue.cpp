@@ -27,16 +27,36 @@ const Shooter& CLQueue::front() const {
 void CLQueue::enqueue(const Shooter& e) {
     list->add(e);
     list->advance();
+    this->displayAddToQueue();
 }
 
 void CLQueue::dequeue() {
+    if (this->front().getQuantity() == 1) {
+        this->displayDone();
+    }
     list->remove();
 }
 
 void CLQueue::displayAddToQueue() const {
-    std::cout << "Shooter: " << this->front().getName()
-        << " added to the queue. Remaining Bullets: "
-        << this->front().getQuantity() << std::endl;
+    if (this->front().getQuantity() == this->front().getInitialQuantity()) {
+        std::cout << "Shooter: " << this->front().getName()
+            << " added to the queue. Remaining Bullets: "
+            << this->front().getQuantity() << std::endl;
+    }
+    else if (this->front().getQuantity() > 0){
+        std::cout << "Shooter: " << this->front().getName()
+            << " was sent to the back of the queue. Remaining Bullets: "
+            << this->front().getQuantity() << std::endl;
+    }
+    else {
+        std::cout << "Shooter: " << this->front().getName()
+            << " is completed!" << std::endl;
+    }
+}
+
+void CLQueue::displayDone() const {
+        std::cout << "Shooter: " << this->front().getName()
+            << " is completed!" << std::endl;
 }
 
 #endif /* ifndef CLQUEUE */

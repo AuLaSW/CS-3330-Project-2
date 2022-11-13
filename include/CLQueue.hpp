@@ -42,4 +42,5 @@ private:
     CLList* list;
 
     void displayAddToQueue() const;
+    void displayDone() const;
 };
