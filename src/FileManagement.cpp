@@ -21,12 +21,13 @@ bool FileManagement::isEmpty() const {
 
 // get the next line and input it into
 // the line value for the object.
-void FileManagement::getNextLine() {
+std::string FileManagement::getNextLine() {
     if (this->isEmpty()) {
         throw std::runtime_error("No more lines to get, the file is empty.");
     }
     else{
         std::getline(this->file, this->line);
+        return this->line;
     }
 }
 

@@ -13,7 +13,7 @@ public:
     bool isEmpty() const;
 
     // get the next line in the file
-    void getNextLine();
+    std::string getNextLine();
 
 private:
     // the file we are working with
