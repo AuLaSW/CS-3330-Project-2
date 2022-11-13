@@ -1,5 +1,8 @@
 #include "../include/FileManagement.hpp"
 #include "../include/CLQueue.hpp"
+#include <fstream>
+#include <string>
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
@@ -7,14 +10,19 @@ int main(int argc, char *argv[])
     const std::string SHOOTER_FILE = "../src/Week3-bulletCount.txt";
     
     // open the file
-    FileManagement *file = new FileManagement(SHOOTER_FILE);
+    std::fstream file (SHOOTER_FILE);
+    std::string line;
+    int bullets;
 
     // Create queue
     CLQueue *queue = new CLQueue();
 
+
     // read the file contents into a queue
-    while (!file->isEmpty()) {
-        queue->enqueue(*(new Shooter(file->getNextLine())));
+    while (file >> line >> bullets) {
+        std::cout << line << bullets << std::endl;
+        Shooter *shooter = new Shooter(line, bullets);
+        queue->enqueue(*shooter);
     }
 
     // shooting sequence

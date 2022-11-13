@@ -2,6 +2,7 @@
 #ifndef FILEMANAGEMENT
 #define FILEMANAGEMENT 
 #include "../include/FileManagement.hpp"
+#include <fstream>
 #include <stdexcept>
 
 // constructor
@@ -19,6 +20,10 @@ bool FileManagement::isEmpty() const {
     return this->file.eof();
 }
 
+std::fstream& FileManagement::getFile() {
+    return this->file;
+}
+
 // get the next line and input it into
 // the line value for the object.
 std::string FileManagement::getNextLine() {
@@ -27,7 +32,7 @@ std::string FileManagement::getNextLine() {
     }
     else{
         std::getline(this->file, this->line);
-        return this->line;
+        return this-> line;
     }
 }
 

@@ -15,6 +15,8 @@ public:
     // get the next line in the file
     std::string getNextLine();
 
+    std::fstream& getFile();
+
 private:
     // the file we are working with
     std::fstream file;
