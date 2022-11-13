@@ -12,7 +12,7 @@
  * This tests walks through creating a list and perform simple node operations
  * on the list, then destroying it.
  */
-SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked list]") {
+SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked_list]") {
     GIVEN("An empty linked list") {
         CLList *list = new CLList();
 
@@ -34,7 +34,7 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked list]"
             }
 
             AND_WHEN("a node is removed from the list") {
-                //list->remove();
+                list->remove();
 
                 THEN("the list is empty") {
                     CHECK(list->isEmpty());
