@@ -86,18 +86,7 @@ void CLList::remove() {
         this->cursor = nullptr;
     }
 
-    std::cout << node << std::endl;
-    std::cout << cursor << std::endl;
-
     delete node;
-
-    /*
-    CLNode *node = this->cursor->next;
-
-    this->cursor->next = this->cursor->next->next;
-
-    delete node;
-    */
 
     this->n--;
 }
