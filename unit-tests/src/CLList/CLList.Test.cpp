@@ -67,17 +67,15 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked_list]"
             }
         }       
 
-        /*
-        WHEN("All of the elements are removed") {
-            while(!list->isEmpty()){
+        WHEN("All of the elements but the last are removed") {
+            while(list->size() > 0){
                 list->remove();
             }
 
-            THEN("the list is empty") {
-                REQUIRE(list->isEmpty());
+            THEN("the size of the list is 0") {
+                REQUIRE(list->size() == 0);
             }
         }
-        */
     }
 }
 
