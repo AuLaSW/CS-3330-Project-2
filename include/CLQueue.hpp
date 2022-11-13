@@ -40,6 +40,4 @@ public:
 private:
     // circularl list we are using to store the queue
     CLList* list;
-    // the length of the list above
-    int n;
 };
