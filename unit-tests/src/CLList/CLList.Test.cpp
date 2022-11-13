@@ -81,6 +81,31 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked_list]"
                 REQUIRE(list->size() == 0);
             }
         }
+
+        WHEN("an element is added") {
+            const Shooter * const oldBack = &list->back();
+            const Shooter * const oldFront = &list->front();
+            Shooter * tempShooter = new Shooter();
+            list->add(*tempShooter);
+
+            THEN("the back node should remain the same") {
+                REQUIRE(&list->back() == oldBack);
+
+                // this isn't a fool-proof test, since it is just checking
+                // that the two shooters equal each other on a member-object
+                // level. Two nodes can have the exact same shooter, so the
+                // test shouldn't be a requirement, just a check that they
+                // are the same to validate they are very likely the same node.
+                AND_THEN("the front node should be the new node") {
+                    CHECK(list->front() == *tempShooter);
+
+                    AND_THEN("the next node should be the old front node") {
+                        list->advance();
+                        REQUIRE(&list->front() == oldFront);
+                    }
+                }
+            }
+        }
     }
 }
 
