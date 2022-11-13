@@ -31,6 +31,11 @@ SCENARIO("Circulalry Linked Lists can be created and destroyed", "[linked_list]"
                 AND_THEN("the element the cursor points to points to itself") {
                     CHECK(&list->back() == &list->front());
                 }
+
+                AND_THEN("the list can be deleted"){
+                    delete list;
+                    REQUIRE(true);
+                }
             }
 
             AND_WHEN("the node is removed from the list") {
